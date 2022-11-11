@@ -1,1 +1,4 @@
-<p>habit-list works!</p>
+<h2>Habits</h2>
+<ul>
+    <app-habit-item *ngFor="let habit of habits" [title]="habit.title"></app-habit-item>
+</ul>

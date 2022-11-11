@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HabitListComponent implements OnInit {
 
+  habits = [
+    {
+      title: "Habit 1"
+    },
+    {
+      title: "Habit 2"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
