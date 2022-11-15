@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-habit-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./habit-list.component.css']
 })
 export class HabitListComponent implements OnInit {
+  habitForm
 
   habits = [
     {
@@ -16,7 +18,16 @@ export class HabitListComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.habitForm = this.formBuilder.group({
+      title: ''
+    })
+  }
+
+  onSubmit(newHabit: any) {
+    this.habits.push(newHabit);
+    this.habitForm.reset();
+  }
 
   ngOnInit(): void {
   }
