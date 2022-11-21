@@ -24,9 +24,8 @@ export class HabitListComponent implements OnInit {
     })
   }
 
-  onSubmit(newHabit: any) {
+  onAddHabit(newHabit: any) {
     this.habits.push(newHabit);
-    this.habitForm.reset();
   }
 
   ngOnInit(): void {
