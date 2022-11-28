@@ -13,5 +13,4 @@ export class HabitItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

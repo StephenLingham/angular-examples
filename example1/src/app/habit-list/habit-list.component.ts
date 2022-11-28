@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { HabitService } from '../habit.service';
 
 @Component({
   selector: 'app-habit-list',
@@ -9,26 +11,19 @@ import { FormBuilder } from '@angular/forms';
 export class HabitListComponent implements OnInit {
   habitForm
 
-  habits = [
-    {
-      title: "Habit 1"
-    },
-    {
-      title: "Habit 2"
-    }
-  ]
+  habits!: Observable<any>;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private habitService: HabitService) { 
     this.habitForm = this.formBuilder.group({
       title: ''
     })
   }
 
   onAddHabit(newHabit: any) {
-    this.habits.push(newHabit);
+    this.habitService.addHabit(newHabit);
   }
 
   ngOnInit(): void {
+    this.habits = this.habitService.getHabits();
   }
-
 }
